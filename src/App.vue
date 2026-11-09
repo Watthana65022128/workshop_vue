@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-app-bar
+      v-if="$route.path === '/'"
       app
       color="primary"
       dark
