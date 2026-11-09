@@ -5,11 +5,11 @@
 </template>
 
 <script>
-  import CardImg from '../components/cardImg.vue'
-  import homeImage from '../assets/gettyimages-2264072918-612x612.jpg'
+  import CardImg from '@/components/common/CardImg.vue'
+  import homeImage from '@/assets/gettyimages-2264072918-612x612.jpg'
 
   export default {
-    name: 'Home',
+    name: 'HomeView',
 
     components: {
       CardImg,
