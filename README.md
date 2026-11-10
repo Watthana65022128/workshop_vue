@@ -30,6 +30,7 @@ npm run serve
 fullName: 'ชื่อ นามสกุล',
 nickname: 'ชื่อเล่น',
 university: 'มหาวิทยาลัย',
+faculty: 'คณะ',
 major: 'สาขา',
 hobbies: ['อ่านหนังสือ', 'ถ่ายภาพ'],
 likes: ['ดนตรี'],

@@ -6,13 +6,16 @@
       <v-card class="identity-card surface-card" outlined>
         <div class="identity-cover"><span>HELLO, THAT’S ME!</span></div>
         <div class="identity-body">
-          <div class="profile-avatar" aria-hidden="true"><v-icon size="46" color="primary">mdi-account-outline</v-icon></div>
+          <div class="profile-avatar">
+            <img src="@/assets/494cbf1d-e341-4af9-a5cc-11b3578ae019.jpg" alt="รูปโปรไฟล์" width="1086" height="1448" />
+          </div>
           <span class="mini-label">MY PROFILE</span>
           <h2 class="profile-name">{{ profile.fullName || 'ยังไม่ได้ระบุชื่อ' }}</h2>
           <p class="nickname">ชื่อเล่น: <strong>{{ profile.nickname || 'ยังไม่ได้ระบุ' }}</strong></p>
           <div class="profile-divider" />
           <dl class="education-list">
             <div><dt><v-icon size="19" color="primary">mdi-school-outline</v-icon> มหาวิทยาลัย</dt><dd>{{ profile.university || 'ยังไม่ได้ระบุ' }}</dd></div>
+            <div><dt><v-icon size="19" color="primary">mdi-domain</v-icon> คณะ</dt><dd>{{ profile.faculty || 'ยังไม่ได้ระบุ' }}</dd></div>
             <div><dt><v-icon size="19" color="primary">mdi-book-open-page-variant-outline</v-icon> สาขาที่เรียน</dt><dd>{{ profile.major || 'ยังไม่ได้ระบุ' }}</dd></div>
           </dl>
         </div>
@@ -49,12 +52,13 @@ export default {
 }
 </script>
 <style scoped>
-.profile-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.65fr); gap: 23px; align-items: start; }
+.profile-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.65fr); gap: 23px; align-items: stretch; }
 .identity-card { overflow: hidden; }
 .identity-cover { height: 104px; background: linear-gradient(115deg, #d6efff, #eaf9ff); display: flex; justify-content: space-between; padding: 22px 26px; color: #397593; font-size: 10px; letter-spacing: 1.5px; font-weight: 700; }
 .identity-cover > span:last-child { font-size: 33px; margin-top: -8px; }
 .identity-body { padding: 0 28px 25px; }
-.profile-avatar { position: relative; margin: -37px 0 18px; border: 6px solid white; width: 84px; height: 84px; border-radius: 25px; background: #e4f5ff; display: grid; place-items: center; }
+.profile-avatar { position: relative; margin: -37px 0 18px; border: 6px solid white; width: 84px; height: 84px; border-radius: 25px; background: #e4f5ff; overflow: hidden; }
+.profile-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 .profile-name { font-size: 25px; line-height: 1.6; margin: 7px 0 3px; overflow-wrap: anywhere; }
 .nickname { color: #617c8d; font-size: 13px; overflow-wrap: anywhere; }
 .nickname strong { color: #15384e; font-weight: 500; margin-left: 4px; }
