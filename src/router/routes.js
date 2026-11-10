@@ -1,22 +1,16 @@
-import WelcomeView from '@/views/WelcomeView.vue'
-import HomeView from '@/views/HomeView.vue'
+import ProfileView from '@/views/ProfileView.vue'
 
 export default [
+  { path: '/', name: 'profile', component: ProfileView },
   {
-    path: '/',
-    name: 'welcome',
-    component: WelcomeView,
-    meta: { showToolbar: true }
+    path: '/workshop-2',
+    name: 'grade',
+    component: () => import(/* webpackChunkName: "grade" */ '@/views/GradeView.vue')
   },
   {
-    path: '/home',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '@/views/AboutView.vue')
+    path: '/workshop-3',
+    name: 'upcoming',
+    component: () => import(/* webpackChunkName: "upcoming" */ '@/views/UpcomingView.vue')
   },
   {
     path: '*',
