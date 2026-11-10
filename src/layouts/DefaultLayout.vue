@@ -18,6 +18,10 @@
       </nav>
       <slot />
     </main>
+    <footer class="site-footer page-width">
+      <span class="footer-title"><span class="brand-dot" aria-hidden="true"></span> Vue Workshop</span>
+      <span>Watthana Kayowaen</span>
+    </footer>
   </div>
 </template>
 

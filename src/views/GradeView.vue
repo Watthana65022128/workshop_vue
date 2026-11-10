@@ -39,7 +39,6 @@
           </table>
           <p class="criteria-note"><v-icon size="18" color="primary">mdi-information-outline</v-icon> เช่น 79.5 คะแนน จะได้เกรด B</p>
         </v-card>
-        <p class="learning-note">✦ &nbsp; ทุกคะแนนคือส่วนหนึ่งของการเรียนรู้</p>
       </aside>
     </div>
   </div>
@@ -105,7 +104,6 @@ export default {
 .selected-grade { background: #eaf7ff; }
 .selected-grade .grade-badge { background: #0369a1; color: white; }
 .criteria-note { display: flex; gap: 7px; align-items: flex-start; font-size: 11px; color: #617c8d; margin: 20px 0 0 !important; }
-.learning-note { text-align: center; color: #617c8d; font-size: 11px; margin-top: 19px; }
 @media (max-width: 959px) {
   .grade-grid { grid-template-columns: minmax(0, 1fr); }
 }
