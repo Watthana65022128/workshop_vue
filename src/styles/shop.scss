@@ -142,8 +142,6 @@
   .kit-product-price { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding: 15px 0; }
   .kit-product-price strong { color: var(--kit-primary); font-size: 23px; font-weight: 600; }
   .kit-product-price .kit-icon-button { width: 35px; height: 35px; }
-  .kit-shop-footnote { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-top: 30px; padding: 18px 2px 0; border-top: 1px solid var(--kit-line); font-size: 11px; color: var(--kit-muted); }
-  .kit-shop-footnote > span:first-child { font-size: 9px; letter-spacing: 1px; }
   .kit-admin-list { display: grid; gap: 16px; }
   .kit-admin-card { display: flex; align-items: center; gap: 18px; padding: 25px; min-width: 0; }
   .kit-admin-card > div { flex: 1; min-width: 0; }
@@ -223,7 +221,6 @@
     .kit-orders-panel { padding: 23px 16px; }
     .kit-section-heading h2 { font-size: 20px; }
     .kit-section-heading > .kit-button { font-size: 12px; padding: 10px 12px; }
-    .kit-shop-footnote { flex-direction: column; }
     .kit-pending h2 { font-size: 23px; }
     .kit-pending { padding: 40px 20px; }
     .kit-admin-card { padding: 22px; }

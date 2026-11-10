@@ -3,7 +3,7 @@
     <header class="site-header page-width">
       <router-link to="/" class="brand" aria-label="Skyroom กลับหน้าแนะนำตัว">
         <span class="brand-mark" aria-hidden="true"><v-icon color="white">mdi-weather-partly-cloudy</v-icon></span>
-        <span>skyroom<span class="brand-dot">.</span></span>
+        <span>Watthana Room<span class="brand-dot">.</span></span>
       </router-link>
       <span class="header-tag"><span aria-hidden="true" /> MY WORKSHOP</span>
     </header>
@@ -31,7 +31,7 @@ export default {
     workshops: [
       { name: 'profile', label: 'แนะนำตัว' },
       { name: 'grade', label: 'ตัดเกรด' },
-      { name: 'shop', label: 'Workshop 3' }
+      { name: 'shop', label: 'ร้านเสื้อฟุตบอล' }
     ]
   })
 }

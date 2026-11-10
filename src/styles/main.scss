@@ -189,49 +189,6 @@ button:focus-visible {
   margin: 9px 0 0 !important;
   line-height: 1.8;
 }
-.heading-art {
-  position: relative;
-  width: 168px;
-  height: 150px;
-  flex-shrink: 0;
-}
-.art-orbit {
-  position: absolute;
-  width: 153px;
-  height: 104px;
-  border: 1px solid #bfdff0;
-  border-radius: 50%;
-  top: 21px;
-  left: 0;
-  transform: rotate(-30deg);
-}
-.art-disc {
-  position: absolute;
-  width: 88px;
-  height: 88px;
-  background: #ddf2ff;
-  border: 8px solid #ffffffb0;
-  border-radius: 50%;
-  top: 27px;
-  left: 32px;
-  display: grid;
-  place-items: center;
-}
-.art-spark {
-  position: absolute;
-  right: 20px;
-  top: 13px;
-  color: #0284c7;
-  font-size: 26px;
-}
-.art-number {
-  position: absolute;
-  right: 8px;
-  bottom: 14px;
-  font-size: 12px;
-  color: #397593;
-  font-weight: 700;
-}
 .surface-card.v-card {
   border: 1px solid $line;
   border-radius: 20px;
@@ -288,24 +245,6 @@ button:focus-visible {
 }
 .interest-list li::marker {
   color: #60b7e4;
-}
-.next-workshop {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 27px;
-  padding: 17px 2px;
-  gap: 12px;
-  font-size: 12px;
-  color: $muted;
-}
-.next-workshop a {
-  font-weight: 600;
-  white-space: nowrap;
-}
-.next-workshop a span {
-  margin-left: 11px;
-  font-size: 20px;
 }
 .site-footer {
   flex-shrink: 0;
@@ -457,9 +396,6 @@ button:focus-visible {
   .eyebrow > span {
     margin: 0 5px;
   }
-  .heading-art {
-    display: none;
-  }
   .interest-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 13px;
@@ -467,10 +403,6 @@ button:focus-visible {
   .profile-detail {
     min-height: 130px;
     padding: 22px;
-  }
-  .next-workshop {
-    align-items: flex-start;
-    flex-direction: column;
   }
   .site-footer {
     flex-direction: column;

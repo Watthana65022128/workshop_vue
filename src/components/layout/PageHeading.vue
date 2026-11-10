@@ -5,11 +5,6 @@
       <h1>{{ title }}<span class="heading-dot">.</span></h1>
       <p class="page-description">{{ description }}</p>
     </div>
-    <div class="heading-art" aria-hidden="true">
-      <span class="art-orbit" />
-      <span class="art-disc"><v-icon size="38" color="primary">{{ icon }}</v-icon></span>
-      <span class="art-number">{{ number }}</span>
-    </div>
   </section>
 </template>
 
@@ -20,8 +15,7 @@ export default {
     number: { type: String, required: true },
     category: { type: String, required: true },
     title: { type: String, required: true },
-    description: { type: String, required: true },
-    icon: { type: String, default: 'mdi-weather-sunny' }
+    description: { type: String, required: true }
   }
 }
 </script>

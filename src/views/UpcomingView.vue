@@ -1,7 +1,7 @@
 <template>
   <div class="page-content">
     <page-heading number="03" category="SOMETHING TO LOOK FORWARD TO" title="พื้นที่สำหรับสิ่งต่อไป"
-      description="อีกหนึ่งบทเรียนใหม่ ที่เราจะได้ทดลองไปด้วยกัน" icon="mdi-rocket-launch-outline" />
+      description="อีกหนึ่งบทเรียนใหม่ ที่เราจะได้ทดลองไปด้วยกัน" />
     <v-card class="upcoming-card surface-card" outlined>
       <span class="upcoming-status"><span /> COMING SOON</span>
       <div class="upcoming-icon" aria-hidden="true"><v-icon size="62" color="primary">mdi-rocket-launch-outline</v-icon><span>✦</span></div>

@@ -1,7 +1,7 @@
 <template>
   <div class="page-content">
     <page-heading number="2" category="LET’S DO THE MATH" title="คะแนนนี้ ได้เกรดอะไร"
-      description="ใส่คะแนน แล้วมาดูผลลัพธ์ไปด้วยกัน" icon="mdi-calculator-variant-outline" />
+      description="ใส่คะแนน แล้วมาดูผลลัพธ์ไปด้วยกัน" />
     <div class="grade-grid">
       <v-card class="score-card surface-card" outlined>
         <div class="card-topline"><span class="icon-tile"><v-icon color="primary">mdi-pencil-outline</v-icon></span><span class="mini-label">YOUR SCORE</span></div>

@@ -1,7 +1,7 @@
 <template>
   <div class="page-content kit-ui football-shop">
     <page-heading number="3" category="FOOTBALL SHIRT SHOP" title="Watthana Shop"
-      description="จัดการสินค้า สต็อก และยอดขายเสื้อฟุตบอล" icon="mdi-soccer" />
+      description="จัดการสินค้า สต็อก และยอดขายเสื้อฟุตบอล" />
     <div v-if="session.account" class="kit-account-toolbar kit-panel">
       <div class="kit-account"><span class="kit-account-icon" aria-hidden="true"><v-icon size="22">mdi-account-outline</v-icon></span><span class="kit-account-info"><strong>{{ session.account.role === 'admin' ? 'ผู้ดูแลระบบ' : 'ผู้จัดการร้าน' }}</strong><span>{{ session.account.email }}</span></span></div>
       <button type="button" class="kit-button" :disabled="busy" @click="logout"><v-icon size="18">mdi-logout</v-icon>ออกจากระบบ</button>
@@ -21,7 +21,7 @@
       <template v-else-if="isAdmin">
         <div class="kit-section-heading"><div><span class="kit-kicker">WAITING FOR THE WHISTLE</span><h2>ร้านที่รออนุมัติ <span class="kit-count">{{ shops.length }}</span></h2></div></div>
         <div v-if="loading && !loaded.shops" class="kit-loading" role="status">กำลังโหลดร้านค้า…</div>
-        <div v-else-if="loaded.shops && !shops.length" class="kit-empty"><v-icon>mdi-check-decagram-outline</v-icon><h3>ทุกร้านพร้อมลงสนามแล้ว</h3><p>ยังไม่มีร้านใหม่ที่รออนุมัติ</p></div>
+        <div v-else-if="loaded.shops && !shops.length" class="kit-empty"><v-icon>mdi-check-decagram-outline</v-icon><p>ยังไม่มีร้านใหม่ที่รออนุมัติ</p></div>
         <div v-else class="kit-admin-list"><article v-for="shop in shops" :key="shop.id" class="kit-panel kit-admin-card"><span class="kit-admin-icon"><v-icon>mdi-storefront-outline</v-icon></span><div><span class="kit-stock empty">รออนุมัติ</span><h3>{{ shop.email }}</h3><p class="kit-muted">สมัครเมื่อ {{ dateTime(shop.createdAt) }}</p></div><button type="button" class="kit-button kit-button-primary" :disabled="busy || loading" @click="approval = shop; approvalError = ''">อนุมัติร้าน</button></article></div>
       </template>
       <template v-else>
@@ -37,7 +37,6 @@
         <div v-else class="kit-empty"><p>ยังโหลดสินค้าไม่สำเร็จ กรุณากดอัปเดตข้อมูลเพื่อลองใหม่</p></div>
       </template>
     </template>
-    <div class="kit-shop-footnote"><span>Watthana Shop / FOOTBALL SHIRT ROOM</span><span>จัดการหลังร้าน · บันทึกยอดขาย</span></div>
 
     <shop-modal v-if="approval" title="อนุมัติร้านค้า" :busy="busy" @close="approval = null">
       <p v-if="approvalError" class="kit-alert" role="alert">{{ approvalError }}</p><p class="kit-description">อนุมัติร้าน <strong>{{ approval.email }}</strong> ให้เริ่มจัดการสินค้าและบันทึกยอดขายหรือไม่?</p><div class="kit-modal-actions"><button type="button" class="kit-button" :disabled="busy" @click="approval = null">ยกเลิก</button><button type="button" class="kit-button kit-button-primary" :disabled="busy" @click="approve">{{ busy ? 'กำลังอนุมัติ…' : 'ยืนยันอนุมัติร้าน' }}</button></div>

@@ -1,7 +1,7 @@
 <template>
   <div class="page-content">
     <page-heading number="1" category="A LITTLE ABOUT ME" title="ยินดีที่ได้รู้จัก"
-      description="" icon="mdi-hand-wave-outline" />
+      description="" />
     <div class="profile-grid">
       <v-card class="identity-card surface-card" outlined>
         <div class="identity-cover"><span>HELLO, THAT’S ME!</span></div>
@@ -27,7 +27,6 @@
           :items="profile.additionalInfo ? [profile.additionalInfo] : []" />
       </div>
     </div>
-    <div class="next-workshop"><span>รู้จักกันแล้วไปกันต่อ</span><router-link :to="{ name: 'grade' }">ไป Workshop 2 <span aria-hidden="true">↗</span></router-link></div>
   </div>
 </template>
 
