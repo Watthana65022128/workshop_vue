@@ -13,7 +13,6 @@
           :to="{ name: workshop.name }" class="workshop-link" exact active-class="is-active">
           <span class="nav-number">{{ workshop.number }}</span>
           <span>{{ workshop.label }}</span>
-          <span v-if="workshop.name === 'upcoming'" class="nav-soon">เร็ว ๆ นี้</span>
         </router-link>
       </nav>
       <slot />
@@ -32,7 +31,7 @@ export default {
     workshops: [
       { name: 'profile', label: 'แนะนำตัว' },
       { name: 'grade', label: 'ตัดเกรด' },
-      { name: 'upcoming', label: 'Workshop 3' }
+      { name: 'shop', label: 'Workshop 3' }
     ]
   })
 }

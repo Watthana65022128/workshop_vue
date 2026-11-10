@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lint:check": "vue-cli-service lint --no-fix"
+    "lint:check": "vue-cli-service lint --no-fix",
+    "test:shop": "node --test tests/shop.test.js"
   },
   "dependencies": {
     "axios": "^1.21.0",

@@ -9,8 +9,8 @@ export default [
   },
   {
     path: '/workshop-3',
-    name: 'upcoming',
-    component: () => import(/* webpackChunkName: "upcoming" */ '@/views/UpcomingView.vue')
+    name: 'shop',
+    component: () => import(/* webpackChunkName: "shop" */ '@/views/ShopView.vue')
   },
   {
     path: '*',

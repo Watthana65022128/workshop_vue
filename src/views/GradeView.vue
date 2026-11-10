@@ -4,7 +4,7 @@
       description="ใส่คะแนน แล้วมาดูผลลัพธ์ไปด้วยกัน" icon="mdi-calculator-variant-outline" />
     <div class="grade-grid">
       <v-card class="score-card surface-card" outlined>
-        <div class="card-topline"><span class="icon-tile"><v-icon color="primary">mdi-pencil-outline</v-icon></span><span class="mini-label">YOUR SCORE</span><span class="step-tag">01 / กรอกคะแนน</span></div>
+        <div class="card-topline"><span class="icon-tile"><v-icon color="primary">mdi-pencil-outline</v-icon></span><span class="mini-label">YOUR SCORE</span></div>
         <p class="muted-text">รองรับทั้งจำนวนเต็มและทศนิยม ตั้งแต่ 0 ถึง 100</p>
         <form novalidate @submit.prevent="calculate">
           <label for="score-input" class="score-label">คะแนนที่ได้ <span class="muted-text">(เต็ม 100 คะแนน)</span></label>
@@ -71,7 +71,8 @@ export default {
 }
 </script>
 <style scoped>
-.grade-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.grade-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 24px; align-items: stretch; }
+.grade-grid > aside { display: flex; }
 .score-card { padding: 31px; }
 .card-topline { display: flex; align-items: center; gap: 12px; margin-bottom: 23px; }
 .step-tag { margin-left: auto; font-size: 10px; color: #617c8d; }
@@ -94,7 +95,7 @@ export default {
 .grade-result h3 { font-size: 16px; margin: 7px 0; overflow-wrap: anywhere; }
 .grade-result p { color: #617c8d; font-size: 11px; margin: 0; }
 .result-letter { color: #0369a1; font-size: 65px; line-height: 1; }
-.criteria-card { padding: 29px; }
+.criteria-card { flex: 1; min-width: 0; padding: 29px; }
 .criteria-card h2 { margin-top: 10px; }
 .grade-table { width: 100%; border-collapse: collapse; margin-top: 22px; text-align: left; }
 .grade-table thead { border-bottom: 1px solid #deedf5; }
