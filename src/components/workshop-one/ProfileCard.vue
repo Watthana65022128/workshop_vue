@@ -1,7 +1,9 @@
 <template>
   <v-card class="profile-detail surface-card" outlined>
     <div class="detail-heading">
-      <span class="icon-tile" :class="tone"><v-icon color="primary" size="23">{{ icon }}</v-icon></span>
+      <span class="icon-tile" :class="tone"
+        ><v-icon color="primary" size="23">{{ icon }}</v-icon></span
+      >
       <h2>{{ title }}</h2>
     </div>
     <ul v-if="items.length" class="interest-list">
@@ -13,12 +15,12 @@
 
 <script>
 export default {
-  name: 'ProfileCard',
+  name: "ProfileCard",
   props: {
     title: { type: String, required: true },
     icon: { type: String, required: true },
-    tone: { type: String, default: '' },
-    items: { type: Array, default: () => [] }
-  }
-}
+    tone: { type: String, default: "" },
+    items: { type: Array, default: () => [] },
+  },
+};
 </script>
