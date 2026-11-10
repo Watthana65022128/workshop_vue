@@ -1,20 +1,21 @@
 <template>
-  <div class="kit-ui football-shop">
-    <header class="kit-shop-header">
-      <div class="kit-shop-brand"><span class="kit-crest" aria-hidden="true"><v-icon>mdi-soccer</v-icon></span><div><span class="kit-wordmark">Watthana Shop</span><span class="kit-kicker">FOOTBALL SHIRT ROOM</span></div></div>
-      <div v-if="session.account" class="kit-account"><span class="kit-account-info"><strong>{{ session.account.role === 'admin' ? 'ผู้ดูแลระบบ' : 'ผู้จัดการร้าน' }}</strong><span>{{ session.account.email }}</span></span><button type="button" class="kit-icon-button" :disabled="busy" aria-label="ออกจากระบบ" title="ออกจากระบบ" @click="logout"><v-icon size="21">mdi-logout</v-icon></button></div>
-      <span v-else class="kit-live-badge"><span /> THE MANAGER'S ROOM</span>
-    </header>
+  <div class="page-content kit-ui football-shop">
+    <page-heading number="3" category="FOOTBALL SHIRT SHOP" title="Watthana Shop"
+      description="จัดการสินค้า สต็อก และยอดขายเสื้อฟุตบอล" icon="mdi-soccer" />
+    <div v-if="session.account" class="kit-account-toolbar kit-panel">
+      <div class="kit-account"><span class="kit-account-icon" aria-hidden="true"><v-icon size="22">mdi-account-outline</v-icon></span><span class="kit-account-info"><strong>{{ session.account.role === 'admin' ? 'ผู้ดูแลระบบ' : 'ผู้จัดการร้าน' }}</strong><span>{{ session.account.email }}</span></span></div>
+      <button type="button" class="kit-button" :disabled="busy" @click="logout"><v-icon size="18">mdi-logout</v-icon>ออกจากระบบ</button>
+    </div>
 
     <p v-if="notice" class="kit-alert kit-alert-success kit-notice" role="status">{{ notice }}<button type="button" class="kit-text-button" aria-label="ปิดข้อความ" @click="notice = ''">ปิด</button></p>
     <shop-auth v-if="!session.token" />
 
-    <section v-else-if="session.account.status === 'pending' && session.account.role === 'shop'" class="kit-pending">
-      <span class="kit-status-disc"><v-icon size="42">mdi-timer-sand</v-icon></span><span class="kit-kicker">YOUR NEXT MATCH IS COMING</span><h1>ร้านของคุณกำลังรออนุมัติ</h1><p>สมัครร้านเรียบร้อยแล้ว เมื่อแอดมินอนุมัติ<br>เข้าสู่ระบบอีกครั้งเพื่อเริ่มจัดการเสื้อและบันทึกยอดขาย</p><button type="button" class="kit-button kit-button-primary" @click="logout">กลับไปเข้าสู่ระบบ</button>
+    <section v-else-if="session.account.status === 'pending' && session.account.role === 'shop'" class="kit-pending kit-panel">
+      <span class="kit-status-disc"><v-icon size="42">mdi-timer-sand</v-icon></span><span class="kit-kicker">AWAITING APPROVAL</span><h2>ร้านของคุณกำลังรออนุมัติ</h2><p>สมัครร้านเรียบร้อยแล้ว เมื่อแอดมินอนุมัติ<br>เข้าสู่ระบบอีกครั้งเพื่อเริ่มจัดการเสื้อและบันทึกยอดขาย</p><button type="button" class="kit-button kit-button-primary" @click="logout">กลับไปเข้าสู่ระบบ</button>
     </section>
 
     <template v-else>
-      <div class="kit-dashboard-intro"><div><span class="kit-kicker">{{ isAdmin ? 'LEAGUE CONTROL' : 'READY FOR THE NEXT KICK-OFF' }}</span><h1>{{ isAdmin ? 'ดูแลร้านก่อนลงสนาม' : 'คุมเกมร้านของคุณ.' }}</h1><p class="kit-muted">{{ isAdmin ? 'ตรวจสอบและอนุมัติร้านค้าที่พร้อมเริ่มต้น' : 'ทุกคอลเลกชัน ทุกสต็อก ทุกยอดขาย — อยู่ในมือคุณ' }}</p></div><button type="button" class="kit-button" :disabled="loading || busy" @click="refresh"><v-icon size="18" :class="{ 'kit-spin': loading }">mdi-refresh</v-icon>{{ loading ? 'กำลังโหลด…' : 'อัปเดตข้อมูล' }}</button></div>
+      <div class="kit-dashboard-intro"><div><h2>{{ isAdmin ? 'จัดการร้านค้า' : 'จัดการร้านของคุณ' }}</h2><p class="kit-muted">{{ isAdmin ? 'ตรวจสอบและอนุมัติร้านค้าที่พร้อมเริ่มต้น' : 'ดูแลสินค้า เช็กสต็อก และบันทึกยอดขายได้ในที่เดียว' }}</p></div><button type="button" class="kit-button" :disabled="loading || busy" @click="refresh"><v-icon size="18" :class="{ 'kit-spin': loading }">mdi-refresh</v-icon>{{ loading ? 'กำลังโหลด…' : 'อัปเดตข้อมูล' }}</button></div>
       <p v-if="loadError" class="kit-alert" role="alert">{{ loadError }} <button type="button" class="kit-text-button" :disabled="loading || busy" @click="refresh">ลองใหม่</button></p>
       <section v-if="accessDenied" class="kit-empty"><v-icon>mdi-lock-outline</v-icon><h2>ยังเข้าถึงข้อมูลส่วนนี้ไม่ได้</h2><p>กรุณาตรวจสิทธิ์หรือสถานะอนุมัติของบัญชี แล้วเข้าสู่ระบบอีกครั้ง</p><button type="button" class="kit-button kit-button-primary" :disabled="busy" @click="logout">เข้าสู่ระบบอีกครั้ง</button></section>
       <template v-else-if="isAdmin">
@@ -27,8 +28,8 @@
         <nav class="kit-tabs" aria-label="เมนูจัดการร้าน"><button v-for="item in tabs" :key="item.key" type="button" :disabled="busy" :class="{ active: tab === item.key }" :aria-current="tab === item.key ? 'page' : undefined" @click="tab = item.key"><v-icon size="18">{{ item.icon }}</v-icon>{{ item.label }}</button></nav>
         <div v-if="loading && !loaded.products && !loaded.orders" class="kit-loading" role="status">กำลังเตรียมห้องเสื้อของคุณ…</div>
         <template v-else-if="tab === 'overview'">
+          <div class="kit-section-heading"><div><span class="kit-kicker">SHOP OVERVIEW</span><h2>ภาพรวมร้าน</h2></div><button type="button" class="kit-button kit-button-primary" :disabled="loading || !loaded.products" @click="tab = 'products'">จัดการสินค้า<v-icon size="18">mdi-arrow-right</v-icon></button></div>
           <div class="kit-stats"><article class="kit-panel kit-stat"><span class="kit-stat-label">เสื้อในร้าน<v-icon size="20">mdi-tshirt-crew-outline</v-icon></span><strong>{{ loaded.products ? products.length : '—' }}<small>รายการ</small></strong><p>แยกสต็อกตามรุ่นและไซซ์</p></article><article class="kit-panel kit-stat"><span class="kit-stat-label">สต็อกพร้อมขาย<v-icon size="20">mdi-package-variant-closed</v-icon></span><strong>{{ loaded.products ? totalStock.toLocaleString('th-TH') : '—' }}<small>ตัว</small></strong><p>{{ loaded.products ? `${products.filter(product => !product.stock).length} รายการสินค้าหมด` : 'ยังโหลดข้อมูลไม่สำเร็จ' }}</p></article><article class="kit-panel kit-stat kit-stat-highlight"><span class="kit-stat-label">ยอดขายสะสม<v-icon size="20">mdi-trending-up</v-icon></span><strong>{{ loaded.orders ? money(totalSales) : '—' }}</strong><p>{{ loaded.orders ? `${orders.length} รายการบันทึกขาย` : 'ยังโหลดข้อมูลไม่สำเร็จ' }}</p></article></div>
-          <div class="kit-collection-banner"><div><span class="kit-kicker">FROM THE STANDS TO YOUR STORE</span><h2>เสื้อตัวต่อไป<br>รอเจ้าของคนใหม่อยู่.</h2><button type="button" class="kit-button kit-button-primary" :disabled="loading || !loaded.products" @click="tab = 'products'">ไปที่ห้องเสื้อ<v-icon size="18">mdi-arrow-right</v-icon></button></div><div class="kit-banner-shirt" aria-hidden="true"><v-icon>mdi-tshirt-crew-outline</v-icon><span>EST. 2026 / Watthana Shop</span></div></div>
           <section class="kit-panel kit-orders-panel"><div class="kit-section-heading"><div><span class="kit-kicker">LATEST ON THE SCORESHEET</span><h2>ยอดขายล่าสุด</h2></div><button type="button" class="kit-text-button" @click="tab = 'orders'">ดูทั้งหมด ↗</button></div><shop-orders v-if="loaded.orders" :orders="orders.slice(0, 5)" /><p v-else class="kit-muted">ยังโหลดประวัติยอดขายไม่สำเร็จ กดอัปเดตข้อมูลเพื่อลองใหม่</p></section>
         </template>
         <shop-products v-else-if="tab === 'products' && loaded.products" :products="products" :disabled="loading || busy" @refresh="refresh" @notice="notice = $event" @busy="busy = $event" @inspect-orders="tab = 'orders'" />
@@ -45,6 +46,7 @@
 </template>
 
 <script>
+import PageHeading from '@/components/layout/PageHeading.vue'
 import ShopAuth from '@/components/shop/ShopAuth.vue'
 import ShopProducts from '@/components/shop/ShopProducts.vue'
 import ShopOrders from '@/components/shop/ShopOrders.vue'
@@ -56,7 +58,7 @@ import '@/styles/shop.scss'
 
 export default {
   name: 'ShopView',
-  components: { ShopAuth, ShopProducts, ShopOrders, ShopModal },
+  components: { PageHeading, ShopAuth, ShopProducts, ShopOrders, ShopModal },
   data: () => ({ session: shopSession, products: [], orders: [], shops: [], loaded: { products: false, orders: false, shops: false }, tab: 'overview', loading: false, busy: false, loadError: '', accessDenied: false, notice: '', approval: null, approvalError: '', generation: 0, alive: true, intentionalLogout: false,
     tabs: [{ key: 'overview', label: 'ภาพรวมร้าน', icon: 'mdi-view-dashboard-outline' }, { key: 'products', label: 'ห้องเสื้อ / สินค้า', icon: 'mdi-tshirt-crew-outline' }, { key: 'orders', label: 'ประวัติยอดขาย', icon: 'mdi-receipt-text-outline' }]
   }),

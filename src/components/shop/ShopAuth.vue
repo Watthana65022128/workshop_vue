@@ -1,11 +1,15 @@
 <template>
   <div class="kit-auth-layout">
-    <section class="kit-auth-story">
-      <span class="kit-kicker">THE GAME BEHIND THE GAME</span>
-      <h2>ทุกเสื้อมีเรื่องราว<br>ทุกร้านมี<span>เกมของตัวเอง.</span></h2>
-      <p>จัดการเสื้อทีมโปรด ดูแลสต็อก และบันทึกทุกยอดขาย<br>พร้อมลงสนามในพื้นที่เดียว</p>
-      <div class="kit-pitch" aria-hidden="true"><span class="kit-pitch-circle" /><v-icon>mdi-tshirt-crew-outline</v-icon><span class="kit-pitch-label">YOUR CLUB. YOUR COLLECTION.</span></div>
-      <div class="kit-story-bottom"><span>01 / จัดการสินค้า</span><span>02 / เช็กสต็อก</span><span>03 / บันทึกยอดขาย</span></div>
+    <section class="kit-panel kit-auth-story">
+      <span class="kit-auth-icon" aria-hidden="true"><v-icon size="34">mdi-tshirt-crew-outline</v-icon></span>
+      <span class="kit-kicker">YOUR FOOTBALL SHIRT SHOP</span>
+      <h2>ร้านเสื้อฟุตบอลของคุณ</h2>
+      <p>จัดการเสื้อทีมโปรดและดูแลร้านได้ง่าย ๆ<br>เริ่มต้นด้วยการเข้าสู่ระบบหรือสมัครร้านค้า</p>
+      <ul class="kit-features">
+        <li><span aria-hidden="true"><v-icon size="21">mdi-tshirt-crew-outline</v-icon></span><div><h3>จัดการสินค้า</h3><p>เพิ่มเสื้อแต่ละรุ่นและไซซ์ พร้อมรูปและราคา</p></div></li>
+        <li><span aria-hidden="true"><v-icon size="21">mdi-package-variant-closed</v-icon></span><div><h3>ดูแลสต็อก</h3><p>เช็กจำนวนคงเหลือ พร้อมสำหรับการขายครั้งต่อไป</p></div></li>
+        <li><span aria-hidden="true"><v-icon size="21">mdi-receipt-text-outline</v-icon></span><div><h3>บันทึกยอดขาย</h3><p>ดูยอดขายและประวัติออร์เดอร์ย้อนหลังได้</p></div></li>
+      </ul>
     </section>
     <section class="kit-panel kit-auth-panel">
       <div class="kit-toggle" aria-label="เลือกเข้าสู่ระบบหรือสมัครร้าน">
@@ -13,7 +17,7 @@
         <button type="button" :disabled="busy" :aria-pressed="mode === 'register'" :class="{ active: mode === 'register' }" @click="switchMode('register')">สมัครร้าน</button>
       </div>
       <span class="kit-kicker">{{ mode === 'login' ? 'WELCOME BACK, MANAGER' : 'BUILD YOUR OWN CLUB' }}</span>
-      <h2>{{ mode === 'login' ? 'พร้อมลงสนามแล้วหรือยัง' : 'เริ่มต้นร้านของคุณ' }}</h2>
+      <h2>{{ mode === 'login' ? 'เข้าสู่ระบบร้านค้า' : 'สมัครร้านค้า' }}</h2>
       <p class="kit-muted">{{ mode === 'login' ? 'เข้าสู่ระบบด้วยบัญชีร้านค้าหรือแอดมิน' : 'สมัครด้วยอีเมล แล้วรอแอดมินอนุมัติร้าน' }}</p>
       <p v-if="success" class="kit-alert kit-alert-success" role="status">{{ success }}</p>
       <p v-if="error" class="kit-alert" role="alert">{{ error }}</p>
